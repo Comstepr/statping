@@ -46,9 +46,6 @@
                         <span class="badge badge-secondary">{{serviceGroup(service)}}</span>
                     </div>
                 </td>
-              <td class="d-none d-md-table-cell">
-                <ServiceSparkList :service="service" :timeframe="list_timeframe"/>
-              </td>
                 <td class="text-right">
                     <div class="btn-group">
                         <button :disabled="loading" v-if="$store.state.admin" @click.prevent="goto({path: `/dashboard/edit_service/${service.id}`, params: {service: service} })" class="btn btn-sm btn-outline-secondary">
