@@ -54,18 +54,6 @@ jobs:
           name: static-rice-box
           path: ./source
 
-      - name: Configure AWS credentials for Asset uploads
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-west-2
-
-      - name: Upload Static Assets to S3
-        run: |
-          tar -czvf source.tar.gz source/
-          aws s3 cp source.tar.gz s3://assets.statping.com/commit/${{ github.sha }}/
-          rm -rf source.tar.gz
 
   build:
     needs: frontend
